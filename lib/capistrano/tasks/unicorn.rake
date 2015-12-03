@@ -61,7 +61,7 @@ namespace :unicorn do
 
   %w[start stop restart].each do |command|
     desc "#{command} unicorn"
-    task command do
+    task command.to_sym do
       on roles :app do
         sudo :service, fetch(:unicorn_service), command
       end
