@@ -63,6 +63,7 @@ namespace :unicorn do
     desc "R: #{command} unicorn"
     task command.to_sym do
       on roles :app do
+        puts 'unicorn #{command}'
         sudo :service, fetch(:unicorn_service), command
       end
     end
